@@ -546,3 +546,24 @@ export const readNotice = (accessToken, id) => {
       console.log(error);
     });
 };
+
+export const findSector = async (accessToken, sectorId) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'X-Auth-Token': accessToken,
+    },
+  };
+  return await axios
+    .get(DEFAULT_URL + '/sectors/' + sectorId, config)
+    .then((response) => {
+      if (response.status === HTTP_STATUS_OK) {
+        return response.data;
+      }
+    })
+    .catch((error) => {
+      redirectLoginWhenUnauthorized(error);
+      alert(`부문 상세정보를 가져올 수 없습니다.${error}`);
+      document.location.href = '/home';
+    });
+};
