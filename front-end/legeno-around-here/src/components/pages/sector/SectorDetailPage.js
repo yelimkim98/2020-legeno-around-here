@@ -11,6 +11,7 @@ import makeStyles from '@material-ui/core/styles/makeStyles';
 import { DEFAULT_IMAGE_URL } from '../myProfileEdit/MyProfileEditPage';
 import { MAIN_COLOR } from '../../../constants/Color';
 import { Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button'
 
 const useStyle = makeStyles({
   sectorNameSection: {
@@ -53,6 +54,16 @@ const useStyle = makeStyles({
     marginLeft: '20px',
     textAlign: 'left',
     color: 'black',
+  },
+  buttonSection: {
+    width: '99%',
+    margin: '30px auto',
+    textAlign: 'center',
+  },
+  goToPostsButton: {
+    width: '90%',
+    margin: 'auto',
+    borderRadius: '12px',
   },
 });
 
@@ -123,6 +134,11 @@ const SectorDetailPage = ({ match }) => {
               </Typography>
             </div>
           </Link>
+        </div>
+        <div className={classes.buttonSection}>
+          <Button variant="contained" color="primary" className={classes.goToPostsButton} size='large'>
+            자랑글 보러 가기
+          </Button>
         </div>
         <BottomBlank />
       </Container>
