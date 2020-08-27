@@ -14,6 +14,7 @@ import MyPosts from './components/pages/myProfile/MyPosts';
 import HomePage from './components/pages/home/HomePage';
 import Notice from './components/pages/home/Notice';
 import InitPage from './components/pages/InitPage';
+import SectorDetailPage from './components/pages/sector/SectorDetailPage'
 
 function App() {
   const mainArea = localStorage.getItem('mainAreaName');
@@ -34,6 +35,7 @@ function App() {
         <Route path='/posting' exact component={PostingPage} />
         <Route path='/posts/:postId/update' exact component={PostingUpdatePage} />
         <Route path='/sector' exact component={SectorPage} />
+        <Route path='/sectors/:sectorId' exact component={SectorDetailPage} />
         <Route path='/posts/:postId' exact component={PostDetailPage} />
         <Route path='/home' exact component={HomePage} />
         <Route path='/ranking' exact component={RankingPage} />
