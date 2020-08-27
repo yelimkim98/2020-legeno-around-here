@@ -4,6 +4,7 @@ import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
+import handleBackButtonClicked from '../../../util/BackButtonHandler'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -20,7 +21,7 @@ const PostDetailTopBar = () => {
   return (
     <AppBar position='sticky'>
       <Toolbar>
-        <IconButton color='inherit' edge='start' onClick={() => (document.location.href = '/home')}>
+        <IconButton color='inherit' edge='start' onClick={handleBackButtonClicked}>
           <ArrowBackIosIcon />
         </IconButton>
         <div className={classes.grow} />

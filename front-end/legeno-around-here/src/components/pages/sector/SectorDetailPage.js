@@ -10,8 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import makeStyles from '@material-ui/core/styles/makeStyles';
 import { DEFAULT_IMAGE_URL } from '../myProfileEdit/MyProfileEditPage';
 import { MAIN_COLOR } from '../../../constants/Color';
-import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button'
+import LinkWithoutStyle from '../../../util/LinkWithoutStyle'
 
 const useStyle = makeStyles({
   sectorNameSection: {
@@ -123,7 +123,7 @@ const SectorDetailPage = ({ match }) => {
         </div>
         <div className={classes.sectorCreatorSectionBackground}>
           <Typography>부문 창시자</Typography>
-          <Link
+          <LinkWithoutStyle
             to={isSectorCreatorMe() ? '/users/me' : '/users/' + sector.creator.id}
             className={classes.sectorCreatorSection}
           >
@@ -133,7 +133,7 @@ const SectorDetailPage = ({ match }) => {
                 <div className={classes.nickname}>{sector.creator.nickname}</div>
               </Typography>
             </div>
-          </Link>
+          </LinkWithoutStyle>
         </div>
         <div className={classes.buttonSection}>
           <Button variant="contained" color="primary" className={classes.goToPostsButton} size='large'>
