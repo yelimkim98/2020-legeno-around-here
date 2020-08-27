@@ -28,7 +28,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/' exact component={InitPage} />
-        <Route path='/home' exact component={HomePage} />
+        <Route path='/home/:sectorId' exact component={HomePage} />
         <Route path='/join' exact component={Join} />
         <Route path='/login' exact component={Login} />
         <Route path='/users/me' exact component={MyProfilePage} />

@@ -12,7 +12,7 @@ import BottomBlank from '../../BottomBlank';
 import Container from '@material-ui/core/Container';
 import PostItem from '../../PostItem';
 
-const HomePage = () => {
+const HomePage = ({ match }) => {
   const [page, setPage] = useState(0);
   const [posts, setPosts] = useState([]);
   const [hasMore, setHasMore] = useState(true);
@@ -23,6 +23,9 @@ const HomePage = () => {
 
   /* 처음에 보여줄 최근글 목록을 가져옴 */
   useEffect(() => {
+    if (match.params.sectorId) {
+      setSectorId(match.params.sectorId);
+    }
     findCurrentPostsFromPage(mainAreaId, 0, sectorId, accessToken).then((firstPosts) => {
       if (firstPosts.length === 0) {
         setHasMore(false);
@@ -31,7 +34,7 @@ const HomePage = () => {
       setPosts(firstPosts);
     });
     setPage(1);
-  }, [mainAreaId, accessToken, sectorId]);
+  }, [mainAreaId, match.params.sectorId, accessToken, sectorId]);
 
   const fetchNextPosts = () => {
     findCurrentPostsFromPage(mainAreaId, page, accessToken)
